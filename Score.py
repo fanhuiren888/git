@@ -84,15 +84,15 @@ def sort():     #排名次，并替换60分以下为不及格
     return temp
 
 
-def showTime():
-    temp = sort()
+def showTime():     #将文件写入文件
+    temp = sort()   #获取之前处理的结果
     try:
-        file = open('file/newscore','w',encoding='utf-8')
-        for i in temp:
-            file.writelines('\n')
-            for j in i:
-                result = '%s\t\t'%j
-                file.writelines(result)
+        file = open('file/newscore','w',encoding='utf-8')   #打开文件
+        for i in temp:      #遍历结果
+            file.writelines('\n')   #每打印一行换行
+            for j in i:     #遍历每一行数据
+                result = '%s\t\t'%j     #将每一行数据简单格式化
+                file.writelines(result)     #写入文件
     except IOError:
         print("文件写入有误")
     finally:
